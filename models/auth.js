@@ -1,4 +1,4 @@
-const { Schema, model } = required('mongoose');
+const { Schema, model } = require('mongoose');
 const Joi = require('joi');
 
 const schema = new Schema({
@@ -24,7 +24,7 @@ const schema = new Schema({
 
 const schemaRegister = Joi.object({
     password: Joi.string().required(),
-    email: Joi.syting().required(),
+    email: Joi.string().required(),
     subscription: Joi.string(),
 })
 
@@ -35,4 +35,4 @@ const schemaLogin = Joi.object({
 
 const User = model('user', schema);
 
-modelu.exports = {User, schemaRegister, schemaLogin}
+module.exports = {User, schemaRegister, schemaLogin}
