@@ -52,5 +52,9 @@ const loginUser = async ({email, password}) => {
     }
 }
 
+const logoutUser = async (id) => {
+    await User.findByIdAndUpdate(id, {token: null})
+}
 
-module.exports = {registerUser, authenticateUser, loginUser}
+
+module.exports = {registerUser, authenticateUser, loginUser, logoutUser}

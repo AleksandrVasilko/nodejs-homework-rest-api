@@ -22,4 +22,13 @@ const loginUser = async (req, res, next) => {
     }
 }
 
-module.exports = {registerUser, loginUser}
+const logoutUser = async (req, res, next) => { 
+    try {
+        await authService.logoutUser(req.user._id);
+        res.sendStatus(204);
+    } catch (e) {
+        next(e);
+    }
+}
+
+module.exports = {registerUser, loginUser, logoutUser}
