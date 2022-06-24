@@ -7,6 +7,8 @@ const registerUser = async (req, res, next) =>{
         res.json({
             email: user.email,
             subscription: user.subscription,
+            id: user._id,
+            avatarURL: user.avatarURL,
         })
     }catch(e){
         next (e)

@@ -1,8 +1,7 @@
 const express = require('express');
-const router = express.Router()
-const {registerUser, loginUser, logoutUser} = require('../../controllers/auth');
-const {schemaRegister, schemaLogin} = require('../../models/auth');
-const {validateRequest} = require('../../middlewares/validateRequest');
+const router = express.Router();
+//const {getAll, getById, create, updateById, deleteById, updateAvailabity} = require('../../controllers')
+
 const { auth } = require('../../middlewares/auth');
 const { upload } = require('../../middlewares/upload');
 const {uploadImage} =require('../../services/image.service');
@@ -16,17 +15,6 @@ router.use((req,res,next)=>{
 
 //router.use(auth);
 
-
-
-
-router.use((req,res,next) => {
-    console.log('in auth');
-    next();
-});
-
-router.post('/signup', validateRequest(schemaRegister), registerUser);
-router.post('/login', validateRequest(schemaLogin), loginUser);
-router.post('/logout', auth, logoutUser);
 router.patch('/avatars', auth, upload.single('avatar'), async (req,res, next) =>{
     console.log('req.file', req.file);
 
