@@ -20,6 +20,12 @@ const schema = new Schema({
     type: String,
     default: null,
   },
+  avatarURL:{
+        type: String,
+        default: function(){
+            return gravatar.url(this.email,{} ,true)
+        }
+    }
 })
 
 const schemaRegister = Joi.object({
