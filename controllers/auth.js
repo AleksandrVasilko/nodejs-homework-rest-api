@@ -85,4 +85,10 @@ const logoutUser = async (req, res, next) => {
     }
 }
 
-module.exports = {registerUser, loginUser, logoutUser}
+module.exports = {
+    registerUser,
+    loginUser,
+    logoutUser,
+    confirm,
+    resend
+}
