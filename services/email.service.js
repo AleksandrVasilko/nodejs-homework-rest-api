@@ -7,7 +7,7 @@ const sendEmail = async (userEmail, code) => {
 
     sgMail.setApiKey(SEND_GRID_API_KEY)
 
-    const link = `${BASE_URL}/auth/verify/${code}`
+    const link = `${BASE_URL}/users/verify/${code}`
 
     const msg = {
         to: userEmail, //Change to tour recipient
