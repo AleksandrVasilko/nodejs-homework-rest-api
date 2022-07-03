@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router()
-const {registerUser, loginUser, logoutUser} = require('../../controllers/auth');
+const {registerUser, loginUser, logoutUser, confirm, resend} = require('../../controllers/auth');
 const {schemaRegister, schemaLogin} = require('../../models/auth');
 const {validateRequest} = require('../../middlewares/validateRequest');
 const { auth } = require('../../middlewares/auth');
@@ -36,5 +36,7 @@ router.patch('/avatars', auth, upload.single('avatar'), async (req,res, next) =>
 
     res.json(user);
 });
+router.get('/verify/:verificationToken', confirm);
+router.post('/verify/', resend);
 
 module.exports = router;
